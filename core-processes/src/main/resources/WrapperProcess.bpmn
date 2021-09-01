@@ -6,10 +6,6 @@
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_0vwcb61" sourceRef="StartEvent_1" targetRef="Activity_03shv49" />
     <bpmn:callActivity id="Activity_03shv49" name="Start domain process" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="DomainProcess">
-      <bpmn:extensionElements>
-        <camunda:executionListener class="org.example.DomainProcessStartFinishTaskListener" event="start" />
-        <camunda:executionListener class="org.example.DomainProcessStartFinishTaskListener" event="end" />
-      </bpmn:extensionElements>
       <bpmn:incoming>Flow_0vwcb61</bpmn:incoming>
       <bpmn:outgoing>Flow_0hz2taw</bpmn:outgoing>
     </bpmn:callActivity>
@@ -20,13 +16,13 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="WrapperProcess">
-      <bpmndi:BPMNEdge id="Flow_0vwcb61_di" bpmnElement="Flow_0vwcb61">
-        <di:waypoint x="215" y="97" />
-        <di:waypoint x="270" y="97" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0hz2taw_di" bpmnElement="Flow_0hz2taw">
         <di:waypoint x="370" y="97" />
         <di:waypoint x="432" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vwcb61_di" bpmnElement="Flow_0vwcb61">
+        <di:waypoint x="215" y="97" />
+        <di:waypoint x="270" y="97" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="79" width="36" height="36" />
