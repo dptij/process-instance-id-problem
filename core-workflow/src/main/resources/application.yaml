@@ -1,0 +1,26 @@
+camunda.bpm:
+  database:
+    type: postgres
+  admin-user:
+    id: demo
+    password: demo
+    firstName: Demo
+  filter:
+    create: All tasks
+  job-execution:
+    deployment-aware: true
+    core-pool-size: 3
+    max-pool-size: 15
+    max-jobs-per-acquisition: 3
+    wait-time-in-millis: 500
+    lock-time-in-millis: 300000
+    max-backoff: 150
+    max-wait: 50
+com:
+  camunda:
+    datasource:
+      jdbc-url: jdbc:postgresql://localhost/camunda
+      username: postgres
+      password: j#EeeztF~55O?068s97tv3I[5l2Qsg
+      driverClassName: org.postgresql.Driver
+      poolName: camunda-pool

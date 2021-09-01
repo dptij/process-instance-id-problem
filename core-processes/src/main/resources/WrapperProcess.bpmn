@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1f33krd" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:process id="WrapperProcess" name="WrapperProcess" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" camunda:asyncBefore="true" camunda:asyncAfter="true">
+      <bpmn:outgoing>Flow_0vwcb61</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0vwcb61" sourceRef="StartEvent_1" targetRef="Activity_03shv49" />
+    <bpmn:callActivity id="Activity_03shv49" name="Start domain process" camunda:asyncBefore="true" camunda:asyncAfter="true" calledElement="DomainProcess">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="org.example.DomainProcessStartFinishTaskListener" event="start" />
+        <camunda:executionListener class="org.example.DomainProcessStartFinishTaskListener" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0vwcb61</bpmn:incoming>
+      <bpmn:outgoing>Flow_0hz2taw</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:endEvent id="Event_0ew2ube" camunda:asyncBefore="true" camunda:asyncAfter="true">
+      <bpmn:incoming>Flow_0hz2taw</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0hz2taw" sourceRef="Activity_03shv49" targetRef="Event_0ew2ube" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="WrapperProcess">
+      <bpmndi:BPMNEdge id="Flow_0vwcb61_di" bpmnElement="Flow_0vwcb61">
+        <di:waypoint x="215" y="97" />
+        <di:waypoint x="270" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hz2taw_di" bpmnElement="Flow_0hz2taw">
+        <di:waypoint x="370" y="97" />
+        <di:waypoint x="432" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="79" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1221jp4_di" bpmnElement="Activity_03shv49">
+        <dc:Bounds x="270" y="57" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ew2ube_di" bpmnElement="Event_0ew2ube">
+        <dc:Bounds x="432" y="79" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
